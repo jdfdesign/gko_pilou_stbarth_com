@@ -1,25 +1,32 @@
 GIT
   remote: git@github.com:jdfdesign/gko_cms_rails_3.git
-  revision: b0d84695d39b296004ff2fd42641276509620d36
+  revision: c7ce98c2d606406884c22706283c3832a399d5f6
   specs:
-    gko_auth (0.1.53)
-      cancan (= 1.6.5)
-      devise (= 1.5.1)
+    gko_auth (0.1.59)
+      cancan (= 1.6.7)
+      devise (= 2.0.4)
       gko_core
-    gko_images (0.1.53)
+    gko_features (0.1.59)
+      dragonfly (~> 0.9.8)
+      gko_core
+      gko_images
+    gko_images (0.1.59)
       dragonfly (~> 0.9.10)
       gko_core
       mime-types
       rack-cache (>= 0.5.3)
-    gko_inquiries (0.1.53)
+    gko_inquiries (0.1.59)
       filters_spam (~> 0.2)
+      gko_core
+      launchy
+    gko_services (0.1.59)
       gko_core
 
 GIT
   remote: git@github.com:jdfdesign/gko_cms_rails_3.git
-  revision: b0d84695d39b296004ff2fd42641276509620d36
+  revision: c7ce98c2d606406884c22706283c3832a399d5f6
   specs:
-    gko_core (0.1.53)
+    gko_core (0.1.59)
       activesupport-slices (= 0.0.2)
       acts_as_indexed (~> 0.7.7)
       capistrano
@@ -81,10 +88,11 @@ GEM
       multi_json (~> 1.0)
     activesupport-slices (0.0.2)
     acts_as_indexed (0.7.7)
+    addressable (2.2.7)
     arel (2.2.3)
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
-    cancan (1.6.5)
+    cancan (1.6.7)
     capistrano (2.11.2)
       highline
       net-scp (>= 1.0.0)
@@ -99,10 +107,11 @@ GEM
       execjs
     coffee-script-source (1.2.0)
     crummy (1.5.0)
-    devise (1.5.1)
+    devise (2.0.4)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
-      warden (~> 1.1)
+      railties (~> 3.1)
+      warden (~> 1.1.1)
     dragonfly (0.9.10)
       rack
     erubis (2.7.0)
@@ -131,6 +140,8 @@ GEM
       railties (~> 3.0)
       thor (~> 0.14)
     json (1.6.5)
+    launchy (2.0.5)
+      addressable (~> 2.2.6)
     macaddr (1.5.0)
       systemu (>= 2.4.0)
     mail (2.3.0)
@@ -221,9 +232,11 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.1.1)
   gko_auth!
-  gko_core (= 0.1.53)!
+  gko_core (= 0.1.59)!
+  gko_features!
   gko_images!
   gko_inquiries!
+  gko_services!
   iconv
   sass-rails (~> 3.1.5.rc2)
   uglifier (>= 1.0.3)

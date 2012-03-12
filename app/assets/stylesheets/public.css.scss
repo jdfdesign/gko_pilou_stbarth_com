@@ -1,5 +1,116 @@
+/*-----------------------------------------
+	SHARED STYLES
+	----------------------------------------- 
+	$global-radii-blocks: 4px !default;
+
+	// Layout
+	$bodyBackgroundColor: white !default;
+	$contentBackgroundColor: transparent !default;
+	$footerBackgroundColor: transparent !default;
+	$mainBackgroundColor: transparent !default;
+	$sidebarBackgroundColor: transparent !default;
+
+	// Typography
+	$baseFontFamily: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+	$baseFontSize: 14px !default;
+	$baseLineHeight: 20px !default;
+	$textColor: #333 !default;
+	$headingFontFamily: $baseFontFamily !default;
+	$headingTextColor: $textColor !default;
+
+
+	// Links
+	$linkColor: $textColor !default;
+	$linkColorHover: darken($linkColor, 15%) !default;
+	$linkColorActive: darken($linkColor, 15%) !default;
+
+	// Header links
+	$headerLinkColor: $linkColor !default;
+	$headerLinkColorHover: $linkColorHover !default;
+	$headerLinkColorActive: $linkColorActive !default;
+
+	// Footer links
+	$footerLinkColor: $linkColor !default;
+	$footerLinkColorHover: $linkColorHover !default;
+	$footerLinkColorActive: $linkColorActive !default;
+
+
+	// Navbar
+	$navbarBackgroundHighlight: $bodyBackgroundColor !default;
+	$navbarBackground: $bodyBackgroundColor !default;
+	$navbarText: $textColor !default;
+	$navbarLinkColor: $linkColor !default;
+	$navbarLinkColorHover: $linkColorHover !default;
+	$navbarLinkColorActive: $linkColorHover !default; 
+	$navbarButtonBackgroundHighlight: $navbarBackgroundHighlight !default; 
+	$navbarButtonBackground: $navbarBackground !default; 
+	$navbarButtonIconBarColor: white !default;
+
+	// Form
+	$inputTextColor: $textColor !default;
+	$inputBackgroundColor: $bodyBackgroundColor !default;
+	$inputBorderColor: $textColor !default;
+	$inputFocusBorderColor: rgba(82, 168, 236, 0.8) !default; 
+	$inputBorderRadius: 3px !default; 
+----------------------------------------- */
+
+$blue: #274665;
+
+$global-radii-blocks: 4px;
+
+
+// Layout
+$bodyBackgroundColor: #000;
+$contentBackgroundColor: #191919;
+$footerBackgroundColor: $blue;
+$mainBackgroundColor: transparent;
+$sidebarBackgroundColor: transparent;
+
+// Typography
+$baseFontFamily: "museo-sans", "Lucida Grande", Arial, sans-serif; 
+$baseFontSize: 16px;
+$baseLineHeight: 24px;
+$textColor: #f6edd0;
+$headingFontFamily: "museo-slab", "Georgia", serif; 
+$headingTextColor: white;
+
+// Links
+$linkColor: $textColor;
+$linkColorHover: white;
+$linkColorActive: white;
+
+// Header links
+$headerLinkColor: $textColor;
+$headerLinkColorHover: $blue;
+$headerLinkColorActive: $blue;
+
+// Footer links
+$footerLinkColor: $linkColor;
+$footerLinkColorHover: $linkColorHover;
+$footerLinkColorActive: $linkColorActive;
+
+
+
+// Navbar
+$navbarBackgroundHighlight: #000;
+$navbarBackground: #000;
+$navbarText: $textColor;
+$navbarLinkColor: $linkColor;
+$navbarLinkColorHover: $linkColorHover;
+$navbarLinkColorActive: $linkColorHover; 
+$navbarButtonBackgroundHighlight: $navbarBackgroundHighlight; 
+$navbarButtonBackground: $navbarBackground; 
+$navbarButtonIconBarColor: white;
+
+// Form
+$inputTextColor: $textColor;
+$inputBackgroundColor: $bodyBackgroundColor;
+$inputBorderColor: $textColor;
+$inputFocusBorderColor: rgba(82, 168, 236, 0.8); 
+$inputBorderRadius: 3px;
+
 @import "gko_public_all"; 
-@import "gko/elastislide"; 
+@import "gko/elastislide";  
 /*-----------------------------------------
    SHARED STYLES 
 ----------------------------------------- */ 
@@ -14,4 +125,30 @@
 ----------------------------------------- */ 
 /*-----------------------------------------
  HEADER
+----------------------------------------- */
+.navbar {
+	border-top: 6px solid $blue;
+} 
+.navbar .brand {
+	@include logo(180px, 182px);
+	float: left; 
+}
+.nav-collapse {
+	@include nav-pills;
+	float: left;
+	margin-top: 74px;
+	margin-left: 24px;
+}
+/*-----------------------------------------
+   HOME
 ----------------------------------------- */ 
+/*-----------------------------------------
+ GLOBAL EFFECT
+----------------------------------------- */
+a {
+	@include transition(color .5s linear, background-color .5s linear)
+}
+/*-----------------------------------------
+ RESPONSIVE
+----------------------------------------- */
+@import "gko/responsive";

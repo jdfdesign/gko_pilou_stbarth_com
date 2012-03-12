@@ -10,7 +10,7 @@ gko-images/photoswipe3.0.2/examples/images/thumb/005.jpg: gko-images/photoswipe3
 gko/admin/ui-bg_highlight-soft_100_eeeeee_1x100.png: gko/admin/ui-bg_highlight-soft_100_eeeeee_1x100-c0e01015c18340afa1a408a1153054b1.png
 wymeditor/skins/gko/right.png: wymeditor/skins/gko/right-c93d1d18ffdb0332d8bf5f6d51d807bf.png
 zurb/foundation/orbit/mask-black.png: zurb/foundation/orbit/mask-black-5adfcdb7175e89596d84ebe411eea6fc.png
-gko_admin_all.css: gko_admin_all-fce19d356333900719a490d2ba38d3a4.css
+gko_admin_all.css: gko_admin_all-4c6cc645741bd03ec026bb115ed2bf5c.css
 wymeditor/lang/rs.js: wymeditor/lang/rs-65f8fe736c6e58bac76816cce0dce8af.js
 gko/externals/plupload.1.5.1/csharp/Plupload/FJCore/Decoder/JpegQuantizationTable.cs: gko/externals/plupload.1.5.1/csharp/Plupload/FJCore/Decoder/JpegQuantizationTable-b546903bbd2a7dd99ba78f015aee854b.cs
 gko/externals/jquery-ui-1.8.17.custom/development-bundle/themes/ui-lightness/images/ui-icons_ef8c08_256x240.png: gko/externals/jquery-ui-1.8.17.custom/development-bundle/themes/ui-lightness/images/ui-icons_ef8c08_256x240-fdb2d5b9e05b835150e8a580c821abe2.png
@@ -99,6 +99,7 @@ gko/externals/plupload.1.5.1/csharp/Plupload/FJCore/Filter/FilterLowpassResize.c
 gko/externals/jquery-ui-1.8.17.custom/development-bundle/demos/sortable/connect-lists-through-tabs.html: gko/externals/jquery-ui-1.8.17.custom/development-bundle/demos/sortable/connect-lists-through-tabs-1f0ecf8014e249573faebd8d807c0663.html
 jquery.mobile.1.rc3/icons-18-black.png: jquery.mobile.1.rc3/icons-18-black-f0e381ebe79f3b9383bdaf5d1d67917e.png
 gko/photoswipe/loader.gif: gko/photoswipe/loader-f32d1d3430b7ae06c25ee1b662927226.gif
+logo.jpg: logo-4466118f9721ba29481a3502a7ed479f.jpg
 wymeditor/skins/gko/html5/h3.png: wymeditor/skins/gko/html5/h3-d82dbc288785715224494f66e648febd.png
 gko/externals/photoswipe3.0.4/examples/images/full/013.jpg: gko/externals/photoswipe3.0.4/examples/images/full/013-8f2e81909493f8d4d5714743fdada734.jpg
 jquery.mobile.1.rc3/icons-36-black.png: jquery.mobile.1.rc3/icons-36-black-ed67e108fb880894cf613b6c129a8848.png
@@ -274,6 +275,7 @@ wymeditor/lang/pl.js: wymeditor/lang/pl-6d43e7474353db76082f1237d57039e3.js
 gko/externals/jquery-ui-1.8.17.custom/development-bundle/demos/resizable/aspect-ratio.html: gko/externals/jquery-ui-1.8.17.custom/development-bundle/demos/resizable/aspect-ratio-90a94a566bdf0e6367653c92a5069f19.html
 gko/externals/jquery-ui-1.8.17.custom/css/ui-lightness/images/ui-bg_glass_100_f6f6f6_1x400.png: gko/externals/jquery-ui-1.8.17.custom/css/ui-lightness/images/ui-bg_glass_100_f6f6f6_1x400-778b49de31d268afe2d4f25c33fe90d3.png
 gko-core/jquery-ui/ui-bg_flat_0_aaaaaa_40x100.png: gko-core/jquery-ui/ui-bg_flat_0_aaaaaa_40x100-2cf4f64704121d570c8c944feecb599d.png
+footerbg.jpg: footerbg-dfb0d90044084057891b8996ad0d1b35.jpg
 gko-themes/default/grid.gif: gko-themes/default/grid-1d3bb0519df18fab2335570c46be0ed6.gif
 jquery.alerts/images/help.gif: jquery.alerts/images/help-f04b83731135ac416364f78f9182ce8c.gif
 gko/externals/jquery-ui-1.8.17.custom/development-bundle/docs/draggable.html: gko/externals/jquery-ui-1.8.17.custom/development-bundle/docs/draggable-52ddb12d41b0928fe6dfc87a5519b1d0.html
@@ -371,6 +373,7 @@ gko/admin/ui-icons_228ef1_256x240.png: gko/admin/ui-icons_228ef1_256x240-c415e56
 gko/externals/jquery-ui-1.8.17.custom/development-bundle/demos/datepicker/alt-field.html: gko/externals/jquery-ui-1.8.17.custom/development-bundle/demos/datepicker/alt-field-b5db837fb49f12dfe7514b7da0656d5d.html
 wymeditor/skins/gko/eye.png: wymeditor/skins/gko/eye-f607848c749fb6d0d76f28e70432503e.png
 wymeditor/lang/nb.js: wymeditor/lang/nb-d1f5c65e811204fb767770e5466e101e.js
+logo.png: logo-9df377d75a9c892a1a0e209602d4ebfa.png
 gko-themes/default/slideshow-bg.png: gko-themes/default/slideshow-bg-2477933478b81a12c8d7ef3a3bbcdaca.png
 wymeditor/skins/gko/html5/time.png: wymeditor/skins/gko/html5/time-6800f4d3a0803387c809f348456220ef.png
 jquery-ui/ui-bg_highlight-soft_50_dddddd_1x100.png: jquery-ui/ui-bg_highlight-soft_50_dddddd_1x100-cd87e06c7f4d66ac92e77e3e43017934.png
@@ -412,12 +415,13 @@ gko/externals/jquery-ui-1.8.17.custom/development-bundle/demos/droppable/visual-
 gko/externals/jquery-ui-1.8.17.custom/development-bundle/demos/autocomplete/maxheight.html: gko/externals/jquery-ui-1.8.17.custom/development-bundle/demos/autocomplete/maxheight-788ddef34214101fae0cececf9d0c331.html
 wymeditor/skins/gko/text_list_bullets.png: wymeditor/skins/gko/text_list_bullets-18a7ce20f8208de903a83885c048d631.png
 gko-images/galleria1.2.6a2/plugins/video/video-demo.html: gko-images/galleria1.2.6a2/plugins/video/video-demo-719883c41d95bd9b3bb367c0114801a7.html
+biglogo.jpg: biglogo-cea5c3d4d535d98b1d85cda0176d8d67.jpg
 gko-images/iviewer/test/test_image.jpg: gko-images/iviewer/test/test_image-36c806ee8580f006ea08cf48af68be4b.jpg
 gko/externals/jquery-ui-1.8.17.custom/development-bundle/demos/dialog/animated.html: gko/externals/jquery-ui-1.8.17.custom/development-bundle/demos/dialog/animated-a9d7f8319b5d03f592f003f342c391cf.html
 zurb/foundation/orbit/rotator-black.png: zurb/foundation/orbit/rotator-black-297bc0889726713fa75b6641f639e1ca.png
 wymeditor/lang/vi.js: wymeditor/lang/vi-7da6f8de76479f39683af5e250ed4811.js
 gko/externals/jquery-ui-1.8.17.custom/development-bundle/demos/resizable/max-min.html: gko/externals/jquery-ui-1.8.17.custom/development-bundle/demos/resizable/max-min-d4c6a4e0ce2bc5fd07e66095556805a6.html
-public.css: public-fcd643d7384cf378d221615160460794.css
+public.css: public-b15e24b400a2b90ec7fd438e9c451feb.css
 gko-images/photoswipe3.0.2/examples/images/full/003.jpg: gko-images/photoswipe3.0.2/examples/images/full/003-db7e7a84fa649a24a7efbb5823908a45.jpg
 gko/externals/jquery-ui-1.8.17.custom/css/ui-lightness/images/ui-bg_flat_10_000000_40x100.png: gko/externals/jquery-ui-1.8.17.custom/css/ui-lightness/images/ui-bg_flat_10_000000_40x100-b445178f2c744b1d511ad862497ffc57.png
 gko-images/iviewer/test/arrow.png: gko-images/iviewer/test/arrow-6e4b148d1c506837040aecfab1bc384d.png
@@ -595,7 +599,7 @@ wymeditor/lang/cs.js: wymeditor/lang/cs-114e5cec18b8bdecc8543e5c6d185326.js
 gko/externals/plupload.1.5.1/csharp/Plupload/PngEncoder/DeflaterOutputStream.cs: gko/externals/plupload.1.5.1/csharp/Plupload/PngEncoder/DeflaterOutputStream-89d9d3db9e699c30851198878b23dc15.cs
 jquery.mobile.1.rc3/icons-18-white.png: jquery.mobile.1.rc3/icons-18-white-48166c3483980f01739cb3cf470afd3e.png
 gko/externals/photoswipe3.0.4/change.log: gko/externals/photoswipe3.0.4/change-8b37bf0eb486d5934b72ea72a7382fd5.log
-gko_public_all.css: gko_public_all-ccedae042b143a5240595cf62afcf417.css
+gko_public_all.css: gko_public_all-de226821e6524b625278f563c82df560.css
 gko/externals/jquery-ui-1.8.17.custom/development-bundle/demos/dialog/modal.html: gko/externals/jquery-ui-1.8.17.custom/development-bundle/demos/dialog/modal-e76aa814d3a7e2c253c8095698574d7d.html
 wymeditor/skins/gko/text_heading_6.png: wymeditor/skins/gko/text_heading_6-64b4c7efb550f16dce74e0be3893aab2.png
 gko/externals/plupload.1.5.1/csharp/Plupload/Plupload.csproj: gko/externals/plupload.1.5.1/csharp/Plupload/Plupload-ce8c0414ad3a953a9532ffacbb7244b2.csproj
@@ -624,9 +628,9 @@ wymeditor/skins/gko/text_heading_5.png: wymeditor/skins/gko/text_heading_5-f889d
 gko-images/photoswipe3.0.2/examples/ajax-gallery2.html: gko-images/photoswipe3.0.2/examples/ajax-gallery2-29de4822fcfd74becdc195c99d88fa13.html
 gko/externals/plupload.1.5.1/csharp/Plupload/FJCore/Filter/FilterNNResize.cs: gko/externals/plupload.1.5.1/csharp/Plupload/FJCore/Filter/FilterNNResize-f0610db57edccd2110b0f15667c68c9d.cs
 gko/externals/jquery-ui-1.8.17.custom/development-bundle/demos/draggable/cursor-style.html: gko/externals/jquery-ui-1.8.17.custom/development-bundle/demos/draggable/cursor-style-dc0035de223912d91114f0f983a1e4d5.html
+gko/externals/jquery-ui-1.8.17.custom/development-bundle/demos/datepicker/date-formats.html: gko/externals/jquery-ui-1.8.17.custom/development-bundle/demos/datepicker/date-formats-15d2c762b44bbf3917085a9369db4303.html
 gko-images/photoswipe3.0.2/examples/images/thumb/009.jpg: gko-images/photoswipe3.0.2/examples/images/thumb/009-6fa65cc8ac330e8e2d6713c73b506452.jpg
 wymeditor/skins/gko/text_heading_2.png: wymeditor/skins/gko/text_heading_2-05b5b7531cc0b099e2c85e77804faa52.png
-gko/externals/jquery-ui-1.8.17.custom/development-bundle/demos/datepicker/date-formats.html: gko/externals/jquery-ui-1.8.17.custom/development-bundle/demos/datepicker/date-formats-15d2c762b44bbf3917085a9369db4303.html
 gko-themes/portfolio/icon_thumb_36_white.png: gko-themes/portfolio/icon_thumb_36_white-3dc9afec34440d5ca5ce13844893938d.png
 gko-themes/portfolio/classic-loader.gif: gko-themes/portfolio/classic-loader-c00d11b554c986fb60ec35bae8d78908.gif
 gko/externals/jquery-ui-1.8.17.custom/development-bundle/demos/autocomplete/default.html: gko/externals/jquery-ui-1.8.17.custom/development-bundle/demos/autocomplete/default-c4645105150a474a8724aa520f749520.html
@@ -649,7 +653,7 @@ gko/externals/jquery-ui-1.8.17.custom/development-bundle/docs/dialog.html: gko/e
 gko-core/jquery-ui/ui-bg_glass_55_fbf9ee_1x400.png: gko-core/jquery-ui/ui-bg_glass_55_fbf9ee_1x400-916459289665d5f737a0c3cbec8185fa.png
 gko/feed.mini.png: gko/feed.mini-f599dc4848fcc6162eed5e5c5e0ef88b.png
 gko-images/photoswipe3.0.2/examples/images/full/016.jpg: gko-images/photoswipe3.0.2/examples/images/full/016-96dbcdf8ffef4602dd5ef5c3d05d8708.jpg
-gko/wymeditor.js: gko/wymeditor-03d60c5075c0df2e04e090bd7363f77d.js
+gko/wymeditor.js: gko/wymeditor-3d0a5bbe212f235009702c2376418f76.js
 gko/externals/plupload.1.5.1/csharp/Plupload/PngEncoder/Deflater.cs: gko/externals/plupload.1.5.1/csharp/Plupload/PngEncoder/Deflater-4df464eacb8be1bf5a537c1cff2f3814.cs
 wymeditor/skins/gko/text_align_right.png: wymeditor/skins/gko/text_align_right-c93d1d18ffdb0332d8bf5f6d51d807bf.png
 gko-images/photoswipe3.0.2/examples/images/thumb/019.jpg: gko-images/photoswipe3.0.2/examples/images/thumb/019-700be9984bc2d51964eab418791520de.jpg

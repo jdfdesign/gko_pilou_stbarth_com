@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120309124159) do
+ActiveRecord::Schema.define(:version => 20120312141829) do
 
   create_table "accounts", :force => true do |t|
     t.string   "reference",  :limit => 40
@@ -83,6 +83,45 @@ ActiveRecord::Schema.define(:version => 20120309124159) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "feature_translations", :force => true do |t|
+    t.integer  "feature_id"
+    t.string   "locale"
+    t.text     "body"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "feature_translations", ["feature_id"], :name => "index_feature_translations_on_feature_id"
+  add_index "feature_translations", ["locale"], :name => "index_feature_translations_on_locale"
+
+  create_table "features", :force => true do |t|
+    t.integer  "site_id"
+    t.integer  "section_id"
+    t.integer  "owner_id"
+    t.string   "owner_type"
+    t.string   "url"
+    t.string   "title"
+    t.text     "body"
+    t.datetime "published_at"
+    t.integer  "position",        :default => 1
+    t.string   "image_mime_type"
+    t.string   "image_name"
+    t.integer  "image_size"
+    t.integer  "image_width"
+    t.integer  "image_height"
+    t.string   "image_uid"
+    t.string   "image_ext"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "globalized",      :default => 0
+  end
+
+  add_index "features", ["owner_type", "owner_id"], :name => "index_features_on_owner_type_and_owner_id"
+  add_index "features", ["position", "section_id"], :name => "index_features_on_position_and_section_id"
+  add_index "features", ["section_id"], :name => "index_features_on_section_id"
+  add_index "features", ["site_id"], :name => "index_features_on_site_id"
 
   create_table "image_assignments", :force => true do |t|
     t.integer  "position",                      :default => 1, :null => false
@@ -189,18 +228,7 @@ ActiveRecord::Schema.define(:version => 20120309124159) do
   create_table "mail_methods", :force => true do |t|
     t.integer  "site_id"
     t.string   "environment"
-    t.boolean  "active",                 :default => true
-    t.boolean  "enable_mail_delivery",   :default => true
-    t.string   "mail_host"
-    t.string   "mail_domain"
-    t.integer  "mail_port",              :default => 25
-    t.string   "mail_auth_type"
-    t.string   "smtp_username"
-    t.string   "smtp_password"
-    t.string   "secure_connection_type"
-    t.string   "mails_from"
-    t.string   "mail_bcc"
-    t.string   "intercept_email"
+    t.boolean  "active",      :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -234,8 +262,10 @@ ActiveRecord::Schema.define(:version => 20120309124159) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "globalized",      :default => 0
+    t.integer  "position",        :default => 1
   end
 
+  add_index "partners", ["position", "section_id"], :name => "index_partners_on_position_and_section_id"
   add_index "partners", ["section_id"], :name => "index_partners_on_section_id"
   add_index "partners", ["site_id"], :name => "index_partners_on_site_id"
 
@@ -302,12 +332,13 @@ ActiveRecord::Schema.define(:version => 20120309124159) do
     t.string   "redirect_url"
     t.string   "title_addon"
     t.datetime "published_at"
-    t.boolean  "hidden",           :default => false
+    t.boolean  "hidden",            :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "menu_title"
-    t.integer  "globalized",       :default => 0
+    t.integer  "globalized",        :default => 0
     t.integer  "level"
+    t.boolean  "shallow_permalink", :default => true
   end
 
   add_index "sections", ["link_id", "link_type"], :name => "index_sections_on_link_id_and_link_type"
@@ -404,9 +435,8 @@ ActiveRecord::Schema.define(:version => 20120309124159) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "reset_password_token"
-    t.string   "remember_token"
     t.string   "remember_created_at"
-    t.integer  "sign_in_count"
+    t.integer  "sign_in_count",                           :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -428,6 +458,7 @@ ActiveRecord::Schema.define(:version => 20120309124159) do
     t.string   "authentication_token"
     t.string   "unlock_token"
     t.datetime "locked_at"
+    t.datetime "reset_password_sent_at"
   end
 
   add_index "users", ["account_id"], :name => "index_users_on_account_id"
