@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120312141829) do
+ActiveRecord::Schema.define(:version => 20120404171853) do
 
   create_table "accounts", :force => true do |t|
     t.string   "reference",  :limit => 40
@@ -84,11 +84,96 @@ ActiveRecord::Schema.define(:version => 20120312141829) do
     t.datetime "updated_at"
   end
 
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "site_id"
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  create_table "document_assignments", :force => true do |t|
+    t.integer  "position",                      :default => 1, :null => false
+    t.integer  "document_id",                                  :null => false
+    t.integer  "attachable_id",                                :null => false
+    t.string   "attachable_type", :limit => 40,                :null => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+  end
+
+  add_index "document_assignments", ["attachable_id", "attachable_type"], :name => "index_document_assignments_on_attachable_id_and_attachable_type"
+
+  create_table "document_items", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.date     "published_at"
+    t.integer  "site_id"
+    t.integer  "section_id"
+    t.string   "document_mime_type"
+    t.string   "document_name"
+    t.integer  "document_size"
+    t.string   "document_uid"
+    t.string   "document_ext"
+    t.string   "image_mime_type"
+    t.string   "image_name"
+    t.integer  "image_size"
+    t.integer  "image_width"
+    t.integer  "image_height"
+    t.string   "image_uid"
+    t.string   "image_ext"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.integer  "country_id"
+  end
+
+  add_index "document_items", ["country_id"], :name => "index_press_articles_on_country_id"
+  add_index "document_items", ["section_id"], :name => "index_press_articles_on_section_id"
+  add_index "document_items", ["site_id"], :name => "index_press_articles_on_site_id"
+
+  create_table "document_translations", :force => true do |t|
+    t.integer  "document_id"
+    t.string   "locale"
+    t.string   "title"
+    t.string   "alt"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "document_translations", ["document_id"], :name => "index_document_translations_on_document_id"
+  add_index "document_translations", ["locale"], :name => "index_document_translations_on_locale"
+
+  create_table "documents", :force => true do |t|
+    t.string   "title",                      :limit => 100
+    t.string   "lang",                       :limit => 4
+    t.string   "alt"
+    t.integer  "account_id"
+    t.integer  "site_id"
+    t.integer  "document_assignments_count",                :default => 0
+    t.datetime "created_at",                                               :null => false
+    t.datetime "updated_at",                                               :null => false
+    t.string   "document_mime_type"
+    t.string   "document_name"
+    t.integer  "document_size"
+    t.string   "document_uid"
+    t.string   "document_ext"
+    t.integer  "globalized",                                :default => 0
+    t.integer  "author_id"
+  end
+
+  add_index "documents", ["author_id"], :name => "index_documents_on_author_id"
+
   create_table "feature_translations", :force => true do |t|
     t.integer  "feature_id"
     t.string   "locale"
-    t.text     "body"
     t.string   "title"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -116,6 +201,8 @@ ActiveRecord::Schema.define(:version => 20120312141829) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "globalized",      :default => 0
+    t.date     "start_at"
+    t.date     "end_at"
   end
 
   add_index "features", ["owner_type", "owner_id"], :name => "index_features_on_owner_type_and_owner_id"
@@ -224,6 +311,18 @@ ActiveRecord::Schema.define(:version => 20120312141829) do
   end
 
   add_index "inquiries", ["site_id"], :name => "index_inquiries_on_site_id"
+
+  create_table "liquid_models", :force => true do |t|
+    t.integer  "site_id"
+    t.text     "body"
+    t.string   "path"
+    t.string   "format"
+    t.string   "locale"
+    t.string   "handler"
+    t.boolean  "partial",    :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
 
   create_table "mail_methods", :force => true do |t|
     t.integer  "site_id"
@@ -396,10 +495,19 @@ ActiveRecord::Schema.define(:version => 20120312141829) do
     t.integer  "globalized",                             :default => 0
     t.text     "plugins"
     t.integer  "site_registrations_count",               :default => 0
+    t.string   "logo_mime_type"
+    t.string   "logo_name"
+    t.integer  "logo_size"
+    t.integer  "logo_width"
+    t.integer  "logo_height"
+    t.string   "logo_uid"
+    t.string   "logo_ext"
+    t.integer  "theme_id"
   end
 
   add_index "sites", ["account_id"], :name => "index_sites_on_account_id"
   add_index "sites", ["host"], :name => "index_sites_on_host", :unique => true
+  add_index "sites", ["theme_id"], :name => "index_sites_on_theme_id"
 
   create_table "states", :force => true do |t|
     t.string  "name"
@@ -416,6 +524,25 @@ ActiveRecord::Schema.define(:version => 20120312141829) do
   end
 
   add_index "supports", ["owner_id", "owner_type"], :name => "index_supports_on_owner_id_and_owner_type", :unique => true
+
+  create_table "themes", :force => true do |t|
+    t.integer  "site_id"
+    t.string   "name"
+    t.string   "theme_id"
+    t.string   "author"
+    t.string   "version"
+    t.string   "homepage"
+    t.text     "summary"
+    t.integer  "active"
+    t.string   "document_mime_type"
+    t.string   "document_name"
+    t.integer  "document_size"
+    t.string   "document_uid"
+    t.string   "document_ext"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.text     "settings"
+  end
 
   create_table "tokenized_permissions", :force => true do |t|
     t.integer  "permissable_id"

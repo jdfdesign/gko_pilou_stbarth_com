@@ -1,24 +1,56 @@
 <% 
 @services = @site.services.with_translations(I18n.locale)
+@boats = @site.sections.named("boats").first.children.with_translations(I18n.locale)
 @features = @site.features.visibles
 %>
 
 <% content_for :page_content do %>
+<h1><%= "TRANSFERTS".html_safe %></h1>
   <% if @features.any? %>
     <div class="row-fluid">
-      <div class="span12" id="home-orbit">
-        <%= render 'shared/carousel', :features => @features %>
-      </div>
+		<div class="span4">
+	        <% if resource.body.present? %>
+				<div class="page_content">
+					<%= resource_body_tag do %>
+						<%= render_html_text(resource.body) %>
+					<% end %> 
+				</div> 
+			<% else %>
+			<p></p>
+			<% end %>
+		</div>
+		<div class="span8" id="home-orbit">
+        	<%= render 'shared/carousel', :features => @features %>
+      	</div>
     </div> 
   <% end %>
    
-  <% if @services.any? %>
-    <div class="row-fluid services">
-      <div class="span12">
-        <%= grid_tag(3) do %>
-          <%= render(:partial => "services/record", :collection => @services, :as => :record) %> 
-        <% end %>    
-      </div>
-    </div>
-  <% end %>  
+ <% if @services.any? %>
+	<div class="row-fluid">
+		<h1><%= "SERVICES".html_safe %></h1>
+		<div class="span4" style="margin-left:0">
+			<% @services.each do |r|%>
+				<h2><%= link_to(r.title, url_for([r.section, r])) %></h2>
+			<% end %>
+		</div>
+		<div class="span8">
+			<% r = @services[rand(@services.length)] %>
+        	<%= link_to(image_fu(r.images.first, "646x300#", :rel => "external"), url_for([r.section, r]), :class => 'bordered') %>
+		</div>
+	</div>
+ <% end %>
+ <% if @boats.any? %>
+	<div class="row-fluid">
+		<h1><%= "BOATS".html_safe %></h1>
+		<div class="span4" style="margin-left:0">
+			<% @boats.each do |r|%>
+				<h2><%= link_to(r.title, page_path(r)) %></h2>
+			<% end %>
+		</div>
+		<div class="span8">
+			<% r = @boats[rand(@boats.length)] %>
+        	<%= link_to(image_fu(r.images.first, "646x300#", :rel => "external"), url_for([r]), :class => 'bordered') %>
+		</div>
+	</div>
+ <% end %>
 <% end %>
