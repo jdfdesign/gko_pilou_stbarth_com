@@ -168,24 +168,24 @@ a.bordered img,
 /*-----------------------------------------
  HEADER
 ----------------------------------------- */
-.navbar {
+body {
 	border-top: 6px solid $blue;
 } 
-
 .navbar-inner {
 	background: $bodyBackgroundColor asset-url("bg.png", image) 0px 0px repeat;
-}
-
-.navbar .brand {
-	@include logo(163px, 164px);
 }
 .navbar .header-nav .nav > li > a {
 	text-transform: uppercase;
 	font-family: "proxima-nova-extra-condensed", "Georgia", serif;
 	font-size: 16px;
 }
-.block-grid {
-	.entry-thumb {
+/*-----------------------------------------
+ Thumbnails Grids of images, videos, text, and more
+----------------------------------------- */
+.thumbnail {
+	@include box-shadow(none);
+	.thumbnail-image {
+		overflow: hidden;
 	  	border:12px solid #e8e8e2;
 		background: $textColor;
 	    -moz-box-shadow: 0 0 65px black inset, 0 0 20px black inset, 0 0 1px black;  
@@ -194,26 +194,26 @@ a.bordered img,
 	    -moz-transition: all 0.3s ease-out;  
 	    -webkit-transition: all 0.3s ease-out;  
 	    transition: all 0.3s ease-out;
-	
 		&:hover,  
 		&:focus {  
 		    transform: scale(1.2);  
 		    box-shadow: 0 0 65px black inset, 0 0 20px black inset, 0 0 15px black;  
 		}
 	}
-	h2.entry-title {
-		//font-size: $baseFontSize;
-		a {
-			span.product-title { font-size: .8em; font-weight: 400;}
-			span.product-price { float:right; font-weight: 400;}
+	.caption {
+		h2 {
+			a {
+				span.product-title { font-size: .8em; font-weight: 400;}
+				span.product-price { float:right; font-weight: 400;}
+			}
 		}
 	}
 }
+
 /*-----------------------------------------
    HOME
 ----------------------------------------- */
 .html_text {
-
 	font-family: "proxima-nova-extra-condensed", "Georgia", serif;
 	font-size: 16px;
 	p {
@@ -236,7 +236,7 @@ a {
  RESPONSIVE
 ----------------------------------------- */
 @import "gko/responsive";
-@media (min-width: 981px) {
+@media (min-width: 980px) {
 	/*-----------------------------------------
 	 HEADER
 	----------------------------------------- */ 
