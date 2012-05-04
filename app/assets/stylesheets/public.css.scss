@@ -57,7 +57,8 @@
 $blue: #274665;
 
 $global-radii-blocks: 4px;
-
+$fluidGridGutterWidth:    2.327659574%;
+$fluidGridColumnWidth:    6.082978723%;
 
 // Layout
 $bodyBackgroundColor: #DADAD2;
@@ -68,7 +69,7 @@ $sidebarBackgroundColor: transparent;
 
 // Typography
 $baseFontFamily: "proxima-nova-extra-condensed", "Lucida Grande", Arial, sans-serif; 
-$baseFontSize: 16px;
+$baseFontSize: 17px;
 $baseLineHeight: 24px;
 $textColor: #474747;
 $headingFontFamily: "proxima-nova-extra-condensed", "Lucida Grande", Arial, sans-serif;
@@ -121,30 +122,14 @@ $inputBorderRadius: 3px;
 /*-----------------------------------------
  TYPOGRAPHY 
 ----------------------------------------- */
-h1 {
-	font-size: 32px;
-	text-transform: uppercase;
-	line-height: 64px;
-	font-weight: normal;
-}
-h2 {
-	font-size: 16px;
-	line-height: 24px;
+h1,h2,h3 {
 	text-transform: uppercase;
 }
-h3 {
-	font-size: 12px;
-	font-weight: normal;
-	line-height: 24px;
-	text-transform: uppercase;
-}
-h4 {
-	font-size: 12px;
-	font-weight: normal;
-	font-style: italic;
-	line-height: 70px;
-	text-transform: uppercase;
-	letter-spacing: 2px;
+.html_text {
+	font-family: $baseFontFamily;
+	p, ul {
+		font-family: $baseFontFamily;
+	}
 }
 /*-----------------------------------------
    OVERWRITTE
@@ -170,41 +155,49 @@ a.bordered img,
 ----------------------------------------- */
 body {
 	border-top: 6px solid $blue;
+	padding: 0;
 } 
+#locales {
+	background-color: $blue;
+	padding: 4px 8px;
+	@include border-radius(0 0 8px 8px)
+}
 .navbar-inner {
 	background: $bodyBackgroundColor asset-url("bg.png", image) 0px 0px repeat;
 }
-.navbar .header-nav .nav > li > a {
+.navbar .nav-collapse .nav > li > a {
 	text-transform: uppercase;
-	font-family: "proxima-nova-extra-condensed", "Georgia", serif;
-	font-size: 16px;
+	font-family: $baseFontFamily;
+	font-size: 18px;
+}
+.navbar .nav .dropdown-toggle .caret, .navbar .nav .open.dropdown .caret {
+	border-top-color: $navbarLinkColor;
+	border-bottom-color: $navbarLinkColor;
+	color: $navbarLinkColor;
 }
 /*-----------------------------------------
  Thumbnails Grids of images, videos, text, and more
 ----------------------------------------- */
-.thumbnail {
-	@include box-shadow(none);
-	.thumbnail-image {
-		overflow: hidden;
-	  	border:12px solid #e8e8e2;
-		background: $textColor;
-	    -moz-box-shadow: 0 0 65px black inset, 0 0 20px black inset, 0 0 1px black;  
-	    -webkit-box-shadow: 0 0 65px black inset, 0 0 20px black inset, 0 0 1px black;  
-	    box-shadow: 0 0 65px black inset, 0 0 20px black inset, 0 0 1px black;  
-	    -moz-transition: all 0.3s ease-out;  
-	    -webkit-transition: all 0.3s ease-out;  
-	    transition: all 0.3s ease-out;
-		&:hover,  
-		&:focus {  
-		    transform: scale(1.2);  
-		    box-shadow: 0 0 65px black inset, 0 0 20px black inset, 0 0 15px black;  
+.grid > li {
+	.thumbnail {
+		@include box-shadow(none);
+		.thumbnail-image {
+			overflow: hidden;
+		  	border:12px solid #e8e8e2;
+			background: $textColor; 
+		    @include box-shadow(0 0 65px rgba(0, 0, 0, .3) inset, 0 0 20px rgba(0, 0, 0, .3) inset, 0 0 1px rgba(0, 0, 0, .3)); 
+		    @include transition(all 0.3s ease-out);
+			&:hover,  
+			&:focus { 
+			    @include box-shadow(0 0 65px rgba(0, 0, 0, .3) inset, 0 0 20px rgba(0, 0, 0, .3) inset, 0 0 15px rgba(0, 0, 0, .3));  
+			}
 		}
-	}
-	.caption {
-		h2 {
+		.thumbnail-title {
+		 	font-size: $headingBaseFontSize - 8;
+		 	line-height: $headingBaseFontSize - 4;
 			a {
-				span.product-title { font-size: .8em; font-weight: 400;}
-				span.product-price { float:right; font-weight: 400;}
+				color: $textColor;
+				font-weight: normal;
 			}
 		}
 	}
@@ -213,17 +206,14 @@ body {
 /*-----------------------------------------
    HOME
 ----------------------------------------- */
-.html_text {
-	font-family: "proxima-nova-extra-condensed", "Georgia", serif;
-	font-size: 16px;
-	p {
 
-		font-family: "proxima-nova-extra-condensed", "Georgia", serif;
-		font-size: 16px;
+#home {
+	h1 {
+		font-weight: normal;
+		border-bottom: 6px solid $textColor;
+		line-height: $baseLineHeight;
+		margin: 8px;	
 	}
-} 
-#home .entry-description {
-	display:none;
 }
 
 /*-----------------------------------------
@@ -236,45 +226,54 @@ a {
  RESPONSIVE
 ----------------------------------------- */
 @import "gko/responsive";
+@media (max-width: 767px) {
+	body {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+}
 @media (min-width: 980px) {
 	/*-----------------------------------------
 	 HEADER
 	----------------------------------------- */ 
-	.navbar .header-nav nav {
-		@include center-nav;  
-	}
-
-
-	.navbar .header-nav .nav > li { 
-		
-		.icon {
-			display: inline-block;
-			width:8px;
-			height: 8px;
-		} 
-		&:first-child { 
-			background: none;
-			padding-left: 0;
-			.text {
-				padding-left: 0; 
+	.navbar {
+		.nav-collapse {
+			margin-top:10px;
+			@include clearfix;
+			nav {
+				@include center-nav;
 			}
-			.icon {
-				display: none;
-			} 
+			.nav {
+				 > li { 
+					.icon {
+						display: inline-block;
+						width:8px;
+						height: 8px;
+					} 
+					&:first-child { 
+						background: none;
+						padding-left: 0;
+						.text {
+							padding-left: 0; 
+						}
+						.icon {
+							display: none;
+						} 
+					}
+				}
+				.dropdown ul {
+					padding-left: 1px;	
+				}
+				.dropdown-menu {
+					background-color: $textColor;
+					a {
+						padding: 3px 12px;
+					}
+				}
+			}
 		}
 	}
-	
-	.navbar .nav-collapse {
-		margin-top:10px;
-		@include clearfix;
-		@include nav-pills;
-	}
-	.navbar .nav-collapse .nav .dropdown-menu {
-		background-color: $textColor;
-	}
-	.navbar .nav-collapse .nav .dropdown-menu > li .text {
-		padding-left: 0px;
-	}
+
 	/*-----------------------------------------
 	 FOOTER
 	----------------------------------------- */
@@ -286,7 +285,7 @@ a {
 		}
 		.nav > li > a  {
 			font-weight: normal;
-			font-size: 12px;
+			font-size: 14px;
 			text-transform: uppercase;
 		}
 	}

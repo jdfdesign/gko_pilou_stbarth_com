@@ -8,16 +8,19 @@ group :assets do
  gem 'uglifier', '>= 1.0.3'
 end
 
+prod_location = 'git@github.com:jdfdesign/gko_cms3.git'
+prod_version = "= 0.2.72"
 group :production do
-  gem "gko_core", "=  0.2.54", :git => 'git@github.com:jdfdesign/gko_cms3.git'
-  gem "gko_auth", "=  0.2.54", :git => 'git@github.com:jdfdesign/gko_cms3.git'
-  gem "gko_images", "=  0.2.54", :git => 'git@github.com:jdfdesign/gko_cms3.git'
-  gem "gko_documents", "=  0.2.54", :git => 'git@github.com:jdfdesign/gko_cms3.git'
-  gem "gko_inquiries", "=  0.2.54", :git => 'git@github.com:jdfdesign/gko_cms3.git'
-  gem "gko_themes", "=  0.2.54", :git => 'git@github.com:jdfdesign/gko_cms3.git'
-  gem "gko_services", "=  0.2.54", :git => 'git@github.com:jdfdesign/gko_cms3.git'
-  gem "gko_features", "=  0.2.54", :git => 'git@github.com:jdfdesign/gko_cms3.git'
+	gem 'gko_core', prod_version, :git => prod_location
+	gem 'gko_auth', prod_version, :git => prod_location
+	gem 'gko_images', prod_version, :git => prod_location
+	gem 'gko_documents', prod_version, :git => prod_location
+	gem 'gko_inquiries', prod_version, :git => prod_location
+	gem "gko_themes", prod_version, :git => prod_location
+	gem "gko_services", prod_version, :git => prod_location
+	gem 'gko_features', prod_version, :git => prod_location
 end
+
 #group :development do
 #	gem "gko_core", :path => File.expand_path('~/Github/gko_cms3/gko_core', __FILE__)
 #	gem "gko_auth", :path => File.expand_path('~/Github/gko_cms3/gko_auth', __FILE__)

@@ -5,12 +5,7 @@
 %>
 
 <% content_for :page_content do %>
-<div style="position:fixed;top:0px;left:0px;">
-<a href="#slider1" class="btn slider-btn">1</a>
-<a href="#slider2" class="btn slider-btn">2</a>
-<a href="#slider3" class="btn slider-btn">3</a>
-</div>
-<div id="slider1" class="slider active">
+<div>
   <% if @features.any? %>
     <div class="row-fluid">
 		<div class="span4">
@@ -29,60 +24,9 @@
       	</div>
     </div> 
   <% end %>
-   
- <% if @services.any? %>
 	<div class="row-fluid">
-		<h1><%= "SERVICES".html_safe %></h1>
-		<div class="span4" style="margin-left:0">
-			<% @services.each do |r|%>
-				<h2><%= link_to(r.title, url_for([r.section, r])) %></h2>
-			<% end %>
-		</div>
-		<div class="span8">
-			<% r = @services[rand(@services.length)] %>
-        	<%= link_to(image_fu(r.images.first, "646x300#", :rel => "external"), url_for([r.section, r]), :class => 'bordered') %>
-		</div>
-	</div>
- <% end %>
- <% if @boats.any? %>
-	<div class="row-fluid">
-		<h1><%= "BOATS".html_safe %></h1>
-		<div class="span4" style="margin-left:0">
-			<% @boats.each do |r|%>
-				<h2><%= link_to(r.title, page_path(r)) %></h2>
-			<% end %>
-		</div>
-		<div class="span8">
-			<% r = @boats[rand(@boats.length)] %>
-        	<%= link_to(image_fu(r.images.first, "646x300#", :rel => "external"), url_for([r]), :class => 'bordered') %>
-		</div>
-	</div>
- <% end %>
-</div>
-<div id="slider2" class="slider" style="display:none;">
-  <% if @features.any? %>
-    <div class="row-fluid">
-		<div class="span4">
-	        <% if resource.body.present? %>
-				<div class="page_content">
-					<%= resource_body_tag do %>
-						<%= render_html_text(resource.body) %>
-					<% end %> 
-				</div> 
-			<% else %>
-			<p></p>
-			<% end %>
-		</div>
-		<div class="span8" id="home-orbit">
-        	<%= render 'shared/carousel', :features => @features %>
-      	</div>
-    </div> 
-  <% end %>
-   
-
-	<div class="row-fluid">
-		<div class="span6" style="margin-left:0">
-			<h1><%= "SERVICES".html_safe %></h1>
+		<div class="span6">
+			<h1><%= t(:"services_header").html_safe %></h1>
 			<% if @services.any? %>
 				<%= grid_tag(2) do %>		  
 					<% @services.each do |r|%>
@@ -91,8 +35,8 @@
 							<div class='thumbnail-image'>
 							<%= link_to(image_fu(r.images.first, "300x200#"), url_for([r.section, r])) %>
 							</div>
-							<div class="caption">
-						       	<h2><%= link_to(r.title, url_for([r.section, r])) %></h2>
+							<div class="thumbnail-caption">
+						       	<h2  class="thumbnail-title small"><%= link_to(r.title, url_for([r.section, r])) %></h2>
 					     	</div> 
 						</div>
 					</li>
@@ -101,8 +45,8 @@
 			<% end %>
 		</div>
 		
-		<div class="span6" style="margin-left:0">
-			<h1><%= "BOATS".html_safe %></h1>
+		<div class="span6">
+			<h1><%= t(:"fleet_header").html_safe %></h1>
 			<% if @boats.any? %>
 				<%= grid_tag(2) do %>		  
 					<% @boats.each do |r|%>
@@ -111,8 +55,8 @@
 							<div class='thumbnail-image'>
 							<%= link_to(image_fu(r.images.first, "300x200#"), url_for([r])) %>
 							</div>
-							<div class="caption">
-						       	<h2><%= link_to(r.title, url_for([r])) %></h2>
+							<div class="thumbnail-caption">
+						       	<h2 class="thumbnail-title small"><%= link_to(r.title, url_for([r])) %></h2>
 					     	</div> 
 						</div>
 					</li>
@@ -123,80 +67,4 @@
 	
 	</div>
 </div>
-<div id="slider3" class="slider" style="display:none;">
-  <% if @features.any? %>
-    <div class="row-fluid">
-		<div class="span4">
-	        <% if resource.body.present? %>
-				<div class="page_content">
-					<%= resource_body_tag do %>
-						<%= render_html_text(resource.body) %>
-					<% end %> 
-				</div> 
-			<% else %>
-			<p></p>
-			<% end %>
-		</div>
-		<div class="span8" id="home-orbit">
-        	<%= render 'shared/carousel', :features => @features %>
-      	</div>
-    </div> 
-  <% end %>
-
-
-	<div class="row-fluid">
-		<div class="span12" style="margin-left:0">
-			<h1><%= "SERVICES".html_safe %></h1>
-			<% if @services.any? %>
-				<%= grid_tag(3) do %>		  
-					<% @services.each do |r|%>
-					<li id="<%= dom_id(r) %>">
-						<div class="thumbnail">
-							<div class='thumbnail-image'>
-							<%= link_to(image_fu(r.images.first, "300x200#"), url_for([r.section, r])) %>
-							</div>
-							<div class="caption">
-						       	<h2><%= link_to(r.title, url_for([r.section, r])) %></h2>
-					     	</div> 
-						</div>
-					</li>
-					<% end %>
-				<% end %>
-			<% end %>
-		</div>
-	</div>
-	<div class="row-fluid">
-		<div class="span12" style="margin-left:0">
-			<h1><%= "BOATS".html_safe %></h1>
-			<% if @boats.any? %>
-				<%= grid_tag(3) do %>		  
-					<% @boats.each do |r|%>
-					<li id="<%= dom_id(r) %>">
-						<div class="thumbnail">
-							<div class='thumbnail-image'>
-							<%= link_to(image_fu(r.images.first, "300x200#"), url_for([r])) %>
-							</div>
-							<div class="caption">
-						       	<h2><%= link_to(r.title, url_for([r])) %></h2>
-					     	</div> 
-						</div>
-					</li>
-					<% end %>
-				<% end %>
-			<% end %>
-		</div>
-	</div>
-</div>
-<%= content_for :after_javascript_libraries do %>
-<%= javascript_tag do -%> 
-  $(document).ready(function(){
-	$('a.slider-btn').live('click', function(event) {
-		var el = $(this).parent();
-		$('.slider.active').hide().removeClass('active');
-		$($(this).attr('href')).show().addClass('active');
-		return false;
-	});
-  });
-<% end -%>
-<% end %>
 <% end -%>
