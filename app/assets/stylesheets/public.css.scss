@@ -237,7 +237,7 @@ a {
 	/*-----------------------------------------
 	 HEADER
 	----------------------------------------- */ 
-	.navbar {
+
 		.nav-collapse {
 			margin-top:10px;
 			@include clearfix;
@@ -246,6 +246,7 @@ a {
 			}
 			.nav {
 				 > li { 
+					padding: 10px 10px 11px;
 					.icon {
 						display: inline-block;
 						width:8px;
@@ -273,7 +274,7 @@ a {
 				}
 			}
 		}
-	}
+
 
 	/*-----------------------------------------
 	 FOOTER
